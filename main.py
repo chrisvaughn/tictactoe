@@ -2,17 +2,17 @@
 
 
 class Board:
-    size = 9
-
     def __init__(self):
         self.board = []
+        self.rows = 3
+        self.columns = 3
 
-        for _ in range(Board.size):
+        for _ in range(self.rows * self.columns):
             self.board.append(Square())
 
     def render(self):
         for i, s in enumerate(self.board):
-            if i % 3 == 0:
+            if i % self.columns == 0:
                 print()
             print(s.display() + " ", end="")
         print()
@@ -23,6 +23,10 @@ class Board:
 
 
 class Square:
+    X = "X"
+    O = "O"
+    EMPTY = "-"
+
     def __init__(self, state=None):
         self.state = state
 
@@ -30,7 +34,7 @@ class Square:
         if self.state:
             return self.state
         else:
-            return "-"
+            return Square.EMPTY
 
     def __str__(self):
         return self.display()
@@ -42,23 +46,23 @@ class Square:
 def main():
     b = Board()
     b.render()
-    b.set(5, "o")
+    b.set(5, Square.O)
     b.render()
-    b.set(7, "o")
+    b.set(7, Square.O)
     b.render()
-    b.set(1, "x")
+    b.set(1, Square.X)
     b.render()
-    b.set(9, "x")
+    b.set(9, Square.X)
     b.render()
-    b.set(2, "x")
+    b.set(2, Square.X)
     b.render()
-    b.set(4, "x")
+    b.set(4, Square.X)
     b.render()
-    b.set(6, "x")
+    b.set(6, Square.X)
     b.render()
-    b.set(8, "x")
+    b.set(8, Square.X)
     b.render()
-    b.set(3, "o")
+    b.set(3, Square.O)
     b.render()
 
 
