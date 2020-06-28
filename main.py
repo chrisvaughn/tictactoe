@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
+
 class Board:
     size = 9
+
     def __init__(self):
         self.board = []
 
@@ -19,12 +21,13 @@ class Board:
         i = square_num - 1
         self.board[i].state = xo
 
+
 class Square:
     def __init__(self, state=None):
         self.state = state
 
     def display(self):
-        if self.state: 
+        if self.state:
             return self.state
         else:
             return "-"
@@ -35,27 +38,29 @@ class Square:
     def __repr__(self):
         return f"<Square state:{self.display()}>"
 
+
 def main():
     b = Board()
     b.render()
-    b.set(5, 'o')
+    b.set(5, "o")
     b.render()
-    b.set(7, 'o')
+    b.set(7, "o")
     b.render()
-    b.set(1, 'x')
+    b.set(1, "x")
     b.render()
-    b.set(9, 'x')
+    b.set(9, "x")
     b.render()
-    b.set(2, 'x')
+    b.set(2, "x")
     b.render()
-    b.set(4, 'x')
+    b.set(4, "x")
     b.render()
-    b.set(6, 'x')
+    b.set(6, "x")
     b.render()
-    b.set(8, 'x')
+    b.set(8, "x")
     b.render()
-    b.set(3, 'o')
+    b.set(3, "o")
     b.render()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
